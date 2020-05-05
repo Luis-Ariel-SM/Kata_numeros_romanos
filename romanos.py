@@ -1,9 +1,15 @@
 romanos = {'M':1000,
+           'CM':900,
            'D':500,
+           'CD':400,
            'C':100,
+           'XC':90,
            'L':50,
+           'XL':40,
            'X':10,
+           'IX':9,
            'V':5,
+           'IV':4,
            'I':1,
            }
 
@@ -12,6 +18,8 @@ existen = ['IV','IX','XL','XC','CD','CM']
 
 
 def romano_a_entero(nRomano):
+
+
 
     if nRomano == "":
         return "Error en formato"
@@ -49,3 +57,42 @@ def romano_a_entero(nRomano):
         letraAnt = letra
 
     return entero
+
+
+def entero_a_romano(valor):
+    if valor > 3999:
+        return 'Overflow'
+
+    componentes = descomponer (valor)
+
+    res = ''
+    
+    for valor in componentes:
+                
+        while valor > 0:
+            k,v = busca_valor_menor_o_igual(valor)
+            valor -= v
+            res += k
+
+    return res
+
+
+def busca_valor_menor_o_igual(v):
+    for key, value in romanos.items():
+        if value <= v:
+            return key,value
+
+def descomponer (numero):
+    res = []
+    for orden in range(3,0,-1):
+        resto = numero % 10 ** orden
+        res.append(numero-resto)
+        numero = resto
+    res.append(numero)
+    return res
+  
+
+    
+       
+
+        
