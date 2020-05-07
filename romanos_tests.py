@@ -30,7 +30,6 @@ class RomanToIntegerTest(unittest.TestCase):
         self.assertEqual(romanos.romano_a_entero('XX'), 20 )
         self.assertEqual(romanos.romano_a_entero('CI'), 101 )
        
-
     def test_digitos_restan(self):
         self.assertEqual(romanos.romano_a_entero('XIX'), 19)
 
@@ -40,7 +39,6 @@ class RomanToIntegerTest(unittest.TestCase):
         self.assertEqual(romanos.romano_a_entero('XM'), "Error en formato" )
         self.assertEqual(romanos.romano_a_entero('IL'), "Error en formato" )
         
-
     def test_resta_de_multiplos_5_NO(self):
         self.assertEqual(romanos.romano_a_entero('VC'), "Error en formato" )
         self.assertEqual(romanos.romano_a_entero('XCV'), 95 )
@@ -89,9 +87,5 @@ class IntegerToRomanTest(unittest.TestCase):
 
 
 
-
-
-
-
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main() 
